@@ -1,0 +1,68 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Verification</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
+    <div id="main-container">
+        <p id="signUp">Sign Up</p>
+
+        <!-- Card and Verification Containers Side by Side -->
+        <div id="content-wrapper">
+            <!-- Right Container: Cards with Locations -->
+            <div id="right-container">
+                <h4 id="right_heading">Layout Cards</h4><br> 
+                <div class="card">
+                   <img src= "{% static 'images/Flag_of_Singapore.svg' %}" >
+                    <h3>Singapore</h3>
+                    <p><strong>Head Office</strong><br>XYZ Pvt. Ltd.<br>Road to nowhere, 06-404, 500 Internal Error</p>
+                </div>
+                <div id="divs">
+                    <div class="card">
+                        <img src= "{% static 'images/Flag_of_Hong_Kong.svg' %}" >
+                        <h3>Hong Kong</h3>
+                        <p><strong>Branches</strong><br>XYZ Pte. Ltd.<br>The Infinite Loop Office, 404 Timeout Plaza</p>
+                    </div>
+                    <div class="card">
+                        <img src= "{% static 'images/Flag_of_the_United_States_(Pantone).svg' %}" >
+                        <h3>USA</h3>
+                        <p><strong>Branches</strong><br>XYZ Inc.<br>Nulltown, Buglandia, 500 0xDEADBEz</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Left Container: Email Verification -->
+            <div id="left-container">
+                <img src= "{% static 'images/logoipsum.svg' %}" >
+                <div class="verification-container">
+                    <form id="verification-form" method="POST">
+                        {% csrf_token %}
+                        <!-- Email Input -->
+                        <input type="email" name="email" id="email" placeholder="Enter your email" required>
+                        <button id="verify-btn" type="submit">Send Verification Code</button>
+                    </form>
+
+                    <!-- Hidden Verification Code Input -->
+                    <div id="verification-code-section" style="display: none;">
+                        <h3>Verify your Email</h3>
+                        <p>Please enter the 6-digit code we just sent to <strong>{{ masked_email }}</strong></p>
+                        <input type="text" name="code" id="code" placeholder="Enter 6-digit code">
+                        <div id="timer" style="margin-top: 10px;"></div> 
+                        <button id="confirm-btn">Verify Code</button>
+                        <button id="resend-btn">Resend Code</button>
+                    </div>
+
+                    <!-- Error Message -->
+                    <p id="error-message" style="color: red; display: none;"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="{% static 'scripts.js' %}"></script>
+</body>
+</html>
+

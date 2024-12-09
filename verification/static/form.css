@@ -1,0 +1,201 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 20px;
+  }
+  
+  .form-container {
+    width: 100%;
+    max-width: 900px;
+    margin: auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Progress Tracker */
+  .progress-tracker {
+    position: relative;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .progress-line {
+    position: absolute;
+    top: 50%;
+    width: 90%;
+    height: 4px;
+    background-color: #ddd;
+    z-index: 1;
+  }
+  
+  .progress-steps {
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+  }
+  
+  .progress-step {
+    position: relative;
+    width: 30px;
+    height: 30px;
+    background-color: #ddd;
+    border-radius: 50%;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    color: white;
+  }
+  
+  .progress-step.active {
+    background-color:#4caf50;
+  }
+  
+  .progress-step.completed::after {
+    content: "✓";
+    color: red;
+    font-size: 16px;
+  }
+  
+  .progress-bar {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  
+  .step {
+    flex: 1;
+    padding: 10px;
+    text-align: center;
+    background-color: #f0f0f0;
+    color: #999;
+    border-radius: 5px;
+    margin: 0 5px;
+  }
+  
+  .step.active {
+    background-color: #4caf50;
+    color: white;
+    font-weight: bold;
+  }
+  
+  .form-step {
+    display: none;
+  }
+  
+  .form-step.active {
+    display: block;
+  }
+  
+  label {
+    display: block;
+    margin: 10px 0 5px;
+    font-weight: bold;
+  }
+  
+  
+  button {
+    padding: 10px 20px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #45a049;
+  }
+  
+  button.prev-btn {
+    background-color: #f44336;
+  }
+  
+  button.prev-btn:hover {
+    background-color: #e53935;
+  }
+  
+  
+#businessForm:hover{
+  border: 2px solid blue;
+}
+
+
+
+#certify:hover{
+  border: 2px solid blue;
+
+}
+
+/* Red asterisk for required fields */
+.required {
+  color: red;
+  font-weight: bold;
+}
+
+/* General styles */
+.form-section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+input, select, textarea {
+  width: 95%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+textarea {
+  height: 80px;
+}
+
+.form-navigation {
+  display: flex;
+  justify-content: space-between;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.next-btn {
+  background-color: #4caf50;
+}
+
+.next-btn:hover {
+  background-color: #45a049;
+}
+
+.prev-btn {
+  background-color: #f44336;
+}
+
+.prev-btn:hover {
+  background-color: #e53935;
+}
+
+
+input:focus, textarea:focus, button:focus {
+  outline: 2px solid #4caf50;
+}

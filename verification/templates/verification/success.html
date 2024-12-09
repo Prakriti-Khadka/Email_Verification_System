@@ -1,0 +1,183 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Multistep Form</title>
+  <link rel="stylesheet" href="{% static 'form.css' %}">
+</head>
+
+<body>
+  <div class="form-container">
+    <!-- Progress Tracker -->
+    <div class="progress-tracker">
+      <div class="progress-line"></div>
+      <div class="progress-steps">
+        <span class="progress-step active" data-step="1">1</span>
+        <span class="progress-step" data-step="2">2</span>
+        <span class="progress-step" data-step="3">3</span>
+        <span class="progress-step" data-step="4">4</span>
+        <span class="progress-step" data-step="5">5</span>
+        <span class="progress-step" data-step="6">6</span>
+        <span class="progress-step" data-step="7">7</span>
+        <span class="progress-step" data-step="8">8</span>
+      </div>
+    </div>
+
+    <!-- Progress Bar (text version) -->
+    <div class="progress-bar">
+      <span class="step active">Business Type</span>
+      <span class="step">Business Details</span>
+      <span class="step">Authorized Representative</span>
+      <span class="step">Business Owners</span>
+      <span class="step">Company Directors</span>
+      <span class="step">Support Information</span>
+      <span class="step">Add Details</span>
+      <span class="step">Complete Registration</span>
+    </div>
+
+    <!-- Form -->
+    <form id="multistep-form">
+      <!-- Step 1 -->
+      <fieldset class="form-step active">
+        <h2>Tell us more about your business</h2>
+        <label for="legal-name">Legal Name *</label>
+        <input type="text" id="legal-name" name="legalName" required />
+        
+        <label for="doing-business-as">Doing Business As *</label>
+        <input type="text" id="doing-business-as" name="doingBusinessAs" required />
+
+        <button type="button" class="next-btn">Next</button>
+      </fieldset>
+
+     <!-- Step 2 -->
+<fieldset class="form-step">
+  <div id="businessForm" class="form-section">
+    <h3>Tell us more about your business</h3>
+    <p>Your info is like the Wi-Fi password—totally crucial for keeping things running, impressing the money folks, and making sure you get top-notch service without any buffering!</p>
+
+    <label for="legal-name">Legal Name <span class="required">*</span></label>
+    <input type="text" id="legal-name" name="legalName" placeholder="Legal Name" required />
+
+    <label for="industry-name">Industry Name <span class="required">*</span></label>
+    <input type="text" id="industry-name" name="industryName" placeholder="Industry Name" required />
+
+    <label for="random-dropdown">One Random Dropdown <span class="required">*</span></label>
+    <select id="random-dropdown" name="randomDropdown" required>
+      <option value="">Select an Option</option>
+      <option value="option1">Option 1</option>
+      <option value="option2">Option 2</option>
+      <option value="option3">Option 3</option>
+    </select>
+
+    <label for="account-usage-intent">Account Usage Intent <span class="required">*</span></label>
+    <select id="account-usage-intent" name="accountUsageIntent" required>
+      <option value="">Select Intent</option>
+      <option value="personal">Personal</option>
+      <option value="business">Business</option>
+    </select>
+
+    <label for="random-count">Random Count Per Month <span class="required">*</span></label>
+    <input type="number" id="random-count" name="randomCount" placeholder="Number" required />
+
+    <label for="purpose">Purpose of Using Fake Form <span class="required">*</span></label>
+    <textarea id="purpose" name="purpose" placeholder="Enter a description..." required></textarea>
+
+    <label for="product-description">Ek Description Toh Banta Hai <span class="required">*</span></label>
+    <textarea id="product-description" name="productDescription" placeholder="Write a product description..." required></textarea>
+  </div>
+
+  <div id="certify" class="form-section">
+    <label for="incorporation-cert">Certification of Incorporation <span class="required">*</span></label>
+    <input type="file" id="incorporation-cert" name="incorporationCert" accept=".pdf, .doc, .docx" required />
+
+    <label for="company-logo">Upload Company Logo <span class="required">*</span></label>
+    <input type="file" id="company-logo" name="companyLogo" accept=".jpg, .png" required />
+  </div>
+
+  <div class="form-navigation">
+    <button type="button" class="prev-btn">Previous</button>
+    <button type="button" class="next-btn">Next</button>
+  </div>
+</fieldset>
+
+
+      <!-- Step 3 -->
+      <fieldset class="form-step">
+        <h2>Authorized Representative</h2>
+        <label for="rep-name">Representative Name *</label>
+        <input type="text" id="rep-name" name="repName" required />
+
+        <label for="rep-email">Representative Email *</label>
+        <input type="email" id="rep-email" name="repEmail" required />
+
+        <button type="button" class="prev-btn">Previous</button>
+        <button type="button" class="next-btn">Next</button>
+      </fieldset>
+
+      <!-- Step 4 -->
+      <fieldset class="form-step">
+        <h2>Business Owners</h2>
+        <label for="owner-name">Owner Name *</label>
+        <input type="text" id="owner-name" name="ownerName" required />
+
+        <label for="owner-share">Ownership Share (%) *</label>
+        <input type="number" id="owner-share" name="ownerShare" required min="1" max="100" />
+
+        <button type="button" class="prev-btn">Previous</button>
+        <button type="button" class="next-btn">Next</button>
+      </fieldset>
+
+      <!-- Step 5 -->
+      <fieldset class="form-step">
+        <h2>Company Directors</h2>
+        <label for="director-name">Director Name *</label>
+        <input type="text" id="director-name" name="directorName" required />
+
+        <label for="director-position">Position *</label>
+        <input type="text" id="director-position" name="directorPosition" required />
+
+        <button type="button" class="prev-btn">Previous</button>
+        <button type="button" class="next-btn">Next</button>
+      </fieldset>
+
+      <!-- Step 6 -->
+      <fieldset class="form-step">
+        <h2>Support Information</h2>
+        <label for="contact-email">Support Email *</label>
+        <input type="email" id="contact-email" name="contactEmail" required />
+
+        <label for="support-desc">Support Description *</label>
+        <textarea id="support-desc" name="supportDesc" rows="4" required></textarea>
+
+        <button type="button" class="prev-btn">Previous</button>
+        <button type="button" class="next-btn">Next</button>
+      </fieldset>
+
+      <!-- Step 7 -->
+      <fieldset class="form-step">
+        <h2>Add Details</h2>
+        <label for="incorporation-cert">Certification of Incorporation *</label>
+        <input type="file" id="incorporation-cert" name="incorporationCert" accept=".pdf, .doc, .docx" required />
+
+        <label for="company-logo">Upload Company Logo *</label>
+        <input type="file" id="company-logo" name="companyLogo" accept=".jpg, .png" required />
+
+        <button type="button" class="prev-btn">Previous</button>
+        <button type="button" class="next-btn">Next</button>
+      </fieldset>
+
+      <!-- Step 8 -->
+      <fieldset class="form-step">
+        <h2>Complete Registration</h2>
+        <p>Thank you for filling out the form. Click submit to complete the process!</p>
+        <button type="button" class="prev-btn">Previous</button>
+        <button type="submit" class="submit-btn">Submit</button>
+      </fieldset>
+    </form>
+  </div>
+  <script src="{% static 'form.js' %}"></script>
+</body>
+</html>
